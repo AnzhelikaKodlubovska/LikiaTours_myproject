@@ -1,0 +1,92 @@
+.bookings-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookings-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  border-left: 5px solid #3498db;
+  padding-left: 15px;
+}
+
+.bookings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.card-header {
+  padding: 10px 15px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.card-body {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.guest-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.user-icon {
+  margin-right: 0;
+  font-size: 2.5rem;
+  display: block;
+}
+
+.detail-item {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card-footer {
+  padding: 15px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  text-align: right;
+  border-radius: 0 0 12px 12px;
+}
+
+.delete-btn {
+  background: white;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #e74c3c;
+  color: white;
+}

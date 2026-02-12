@@ -1,0 +1,306 @@
+/* FAQPage.css */
+
+/* 1. Глобальні змінні та базові налаштування */
+:root {
+  --main-color: #0072ff; /* Переконайся, що це збігається з твоєю основною темою */
+  --accent-color: #58aee8;
+  --text-dark: #1a2b3c;
+  --text-muted: #64748b;
+  --bg-light: #f8fbff;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 15px 35px rgba(31, 38, 135, 0.12);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-page {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, sans-serif;
+  padding-bottom: 80px;
+}
+
+/* 2. Декоративні розмиті плями на фоні */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--main-color);
+  top: -150px;
+  right: -100px;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-color);
+  bottom: 5%;
+  left: -100px;
+}
+
+/* 3. Hero секція */
+.faq-hero {
+  position: relative;
+  z-index: 1;
+  padding: 140px 20px 100px;
+  text-align: center;
+}
+
+.hero-content .badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--main-color), var(--accent-color));
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+}
+
+.faq-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.faq-hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 4. Контейнер для питань */
+.faq-list-section {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.faq-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 5. Картки питань (Modern Accordion) */
+.faq-card-modern {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-card-modern:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--main-color);
+}
+
+.faq-q-box {
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.q-icon {
+  font-size: 1.8rem;
+  background: #f0f7ff;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.faq-card-modern:hover .q-icon {
+  background: var(--main-color);
+  transform: rotate(-10deg);
+}
+
+.faq-q-box h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+/* Стрілочка перемикач */
+.arrow {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: var(--transition);
+  margin-right: 10px;
+}
+
+.faq-card-modern.open .arrow {
+  transform: rotate(-135deg);
+  border-color: var(--main-color);
+}
+
+/* Контент відповіді */
+.faq-a-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 30px 0 106px; /* 30px padding + 56px icon + 20px gap */
+}
+
+.faq-card-modern.open .faq-a-box {
+  max-height: 250px;
+  padding-bottom: 30px;
+}
+
+.faq-a-box p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  padding-top: 10px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+/* 6. Блок "Залишилися питання?" (CTA) */
+.contact-cta {
+  margin-top: 80px;
+  background: linear-gradient(135deg, var(--main-color) 0%, #2575fc 100%);
+  border-radius: 30px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 114, 255, 0.25);
+}
+
+/* Декор всередині CTA */
+.contact-cta::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  right: -50px;
+}
+
+.cta-info h4 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.cta-info p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background: white;
+  color: var(--main-color);
+  border: none;
+  padding: 18px 40px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background: #f8fbff;
+}
+
+/* 7. Адаптивність для телефонів */
+@media (max-width: 768px) {
+  .faq-hero {
+    padding: 100px 20px 60px;
+  }
+
+  .faq-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .faq-q-box {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .q-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 1.4rem;
+  }
+
+  .faq-a-box {
+    padding: 0 20px 0 79px;
+  }
+
+  .contact-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 25px;
+    gap: 30px;
+  }
+
+  .cta-info h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.faq-card-modern {
+  animation: fadeInScale 0.5s ease forwards;
+}

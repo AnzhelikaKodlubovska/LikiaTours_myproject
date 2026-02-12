@@ -1,0 +1,40 @@
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Реєстрація</title>
+  </head>
+  <body>
+    <h2>Реєстрація</h2>
+    <form id="registerForm">
+      <label>Ім'я користувача:</label>
+      <input type="text" id="username" required /><br />
+      <label>Пароль:</label>
+      <input type="password" id="password" required /><br />
+      <button type="submit">Зареєструватися</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          const response = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          });
+
+          const result = await response.json();
+          document.getElementById("message").textContent =
+            result.message || result.error;
+        });
+    </script>
+  </body>
+</html>

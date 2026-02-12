@@ -1,0 +1,104 @@
+.contacts-page {
+  position: relative;
+  background-color: #f8fbff;
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  overflow: hidden;
+}
+
+/* Фонові плями */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.blob-left {
+  width: 500px;
+  height: 500px;
+  background: #0072ff;
+  top: -100px;
+  left: -150px;
+}
+.blob-right {
+  width: 400px;
+  height: 400px;
+  background: #58aee8;
+  bottom: 10%;
+  right: -100px;
+}
+
+.contacts-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contacts-header h1 {
+  font-size: 3.5rem;
+  color: #1a2b3c;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.contacts-header .overline {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #0072ff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Сітка для контенту */
+.contacts-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Стилізація блоків (якщо вони ще не мають своїх стилів) */
+.info-side,
+.form-side {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Карта */
+.map-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.map-wrapper {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+  .contacts-header h1 {
+    font-size: 2.5rem;
+  }
+}

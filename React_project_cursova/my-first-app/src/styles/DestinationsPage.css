@@ -1,0 +1,231 @@
+/* DestinationsPage.css */
+
+/* 1. Головний контейнер сторінки */
+.destinations-page {
+  background-color: #f8fbff;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* Важливо: відступ зверху, щоб заголовок не заїжджав під Header */
+  padding-top: 110px;
+}
+
+/* 2. Декоративні фонові елементи (плями) */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: #0072ff;
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #00d4ff;
+  bottom: 10%;
+  right: -50px;
+}
+
+/* 3. Секція заголовка */
+.destinations-header {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  text-align: center;
+  /* Центруємо весь блок заголовка */
+  display: flex;
+  justify-content: center;
+}
+
+/* 4. Контент заголовка (ФІКС: вертикальне вирівнювання) */
+.destinations-content {
+  display: flex;
+  flex-direction: column; /* Змушує елементи стати в стовпчик */
+  align-items: center; /* Центрує текст по горизонталі */
+  max-width: 900px;
+  width: 100%;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #0072ff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.destinations-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem); /* Адаптивний розмір шрифту */
+  color: #1a2b3c;
+  margin-bottom: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.destinations-content p {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 650px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* 5. Фільтрація */
+.filter-wrapper {
+  background: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+}
+
+/* 6. Секція з картками турів */
+.tours-section {
+  position: relative;
+  z-index: 1;
+  padding: 40px 0 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* 7. Повідомлення про відсутність результатів */
+.no-results {
+  text-align: center;
+  padding: 60px;
+  font-size: 1.2rem;
+  color: #666;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* DestinationsPage.css */
+
+/* Базовий контейнер сторінки */
+.destinations-page {
+  background-color: #f8fbff;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 110px; /* Відступ від фіксованого хедера */
+}
+
+/* Секція заголовка */
+.destinations-header {
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Контент заголовка - ТЕПЕР СТОВПЧИК */
+.destinations-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.destinations-content h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #1a2b3c;
+  margin: 10px 0 20px;
+  font-weight: 800;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #0072ff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.destinations-content p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+/* Фільтр */
+.filter-wrapper {
+  background: white;
+  padding: 10px 25px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+/* Секція з турами */
+.tours-section {
+  padding: 20px 0 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ФІКС КАРТОЧОК: СІТКА (GRID) ===== */
+/* Цей блок примусово робить картки нормального розміру */
+.tour-list {
+  display: grid !important;
+  /* Автоматично створює колонки мін. 350 пікселів */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Стиль самої картки (про всяк випадок) */
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Декоративні плями */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.1;
+  z-index: 0;
+}
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: #0072ff;
+  top: -50px;
+  left: -50px;
+}
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: #00d4ff;
+  bottom: 20%;
+  right: -50px;
+}

@@ -1,0 +1,8 @@
+:root {
+  --main-color: #1b4b6b;
+  --accent-color: #d4af37;
+  --text-color: #333;
+  --light-gray: #f9f9f9;
+  --transition: all 0.3s ease;
+  --font-family: "Poppins", "Segoe UI", sans-serif;
+}

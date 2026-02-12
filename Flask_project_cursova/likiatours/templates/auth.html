@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Увійти / Зареєструватись</title>
+    <style>
+      .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 25px 30px;
+        border-radius: 10px;
+        width: 350px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s;
+      }
+
+      .tab.active {
+        border-color: #007bff;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100% !important;
+        padding: 10px;
+        margin: 8px 0;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .message {
+        margin-top: 10px;
+        font-size: 14px;
+        color: green;
+        text-align: center;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="authBtn">Увійти / Зареєструватись</button>
+
+    <!-- Модальне вікно -->
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+
+        <div class="tabs">
+          <div id="loginTab" class="tab active">Вхід</div>
+          <div id="registerTab" class="tab">Реєстрація</div>
+        </div>
+
+        <div id="loginForm">
+          <input
+            type="text"
+            id="loginUsername"
+            placeholder="Ім'я користувача"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Пароль"
+            required
+          />
+          <button id="loginSubmit">Увійти</button>
+          <div id="loginMessage" class="message"></div>
+        </div>
+
+        <div id="registerForm" style="display: none">
+          <input
+            type="text"
+            id="registerUsername"
+            placeholder="Ім'я користувача"
+            required
+          />
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Пароль"
+            required
+          />
+          <button id="registerSubmit">Зареєструватись</button>
+          <div id="registerMessage" class="message"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("authModal");
+      const authBtn = document.getElementById("authBtn");
+      const closeModal = document.getElementById("closeModal");
+
+      const loginTab = document.getElementById("loginTab");
+      const registerTab = document.getElementById("registerTab");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+
+      // Відкрити модалку
+      authBtn.onclick = () => (modal.style.display = "block");
+
+      // Закрити модалку
+      closeModal.onclick = () => (modal.style.display = "none");
+      window.onclick = (event) => {
+        if (event.target === modal) modal.style.display = "none";
+      };
+
+      // Перемикання вкладок
+      loginTab.onclick = () => {
+        loginTab.classList.add("active");
+        registerTab.classList.remove("active");
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+      };
+      registerTab.onclick = () => {
+        registerTab.classList.add("active");
+        loginTab.classList.remove("active");
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+      };
+
+      // Надсилання запитів на Flask API
+      document.getElementById("loginSubmit").onclick = async () => {
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await res.json();
+        const msg = document.getElementById("loginMessage");
+        msg.textContent = data.message || data.error;
+        msg.className = res.ok ? "message" : "message error";
+      };
+
+      document.getElementById("registerSubmit").onclick = async () => {
+        const username = document.getElementById("registerUsername").value;
+        const password = document.getElementById("registerPassword").value;
+
+        const res = await fetch("/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await res.json();
+        const msg = document.getElementById("registerMessage");
+        msg.textContent = data.message || data.error;
+        msg.className = res.ok ? "message" : "message error";
+      };
+    </script>
+  </body>
+</html>

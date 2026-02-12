@@ -1,0 +1,90 @@
+.tour-details-page {
+  padding: 20px;
+}
+
+.tour-details-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 80px; /* Висота вашого хедера + невеликий запас */
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/*  Фото зліва */
+.tour-image-block {
+  flex: 0 0 40%;
+}
+
+.tour-image-block img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.tour-info-block {
+  flex: 1;
+  max-width: 50%;
+}
+
+.tour-info-block h1 {
+  margin-bottom: 15px;
+}
+
+.tour-info-block .price {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/*  Кнопка */
+.booking-btn {
+  background-color: #0e5686;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booking-btn:hover {
+  background-color: #0b4b76;
+}
+
+.destination-filter {
+  padding: 8px 14px;
+  margin-top: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #0a6d7c;
+  outline: none;
+  background-color: white;
+  color: #004b55;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.destination-filter:hover {
+  border-color: #009fb3;
+}
+
+.destination-filter:focus {
+  box-shadow: 0 0 4px #0b4b76;
+  border-color: #009fb3;
+}
+
+/* Адаптив для мобільних */
+@media (max-width: 768px) {
+  .tour-details-container {
+    flex-direction: column;
+  }
+
+  .tour-info-block,
+  .tour-image-block {
+    max-width: 100%;
+  }
+}

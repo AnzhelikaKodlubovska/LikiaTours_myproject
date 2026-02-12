@@ -1,0 +1,419 @@
+/* Основний фон сторінки */
+.admin-page-bg {
+  background: #0a0a0a;
+  min-height: 100vh;
+  color: white;
+  padding: 40px 0;
+}
+
+/* Контейнер */
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Заголовок */
+.main-title {
+  text-align: center;
+  color: #00d2ff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Розділювач */
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d2ff, transparent);
+  margin: 20px 0 40px;
+}
+
+/* СТАТИСТИКА */
+.admin-stats {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: #1a1a1a;
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  color: #00d2ff;
+  font-weight: bold;
+}
+
+/* СЕКЦІЇ (Шапка з фільтрацією) */
+.admin-section {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+}
+
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.admin-section h3 {
+  margin: 0;
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+/* СТИЛЬ ПОШУКОВОГО РЯДКА (Тільки для бронювань) */
+.admin-search-bar {
+  background: #252525;
+  border: 1px solid #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 300px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.admin-search-bar:focus {
+  border-color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+/* === ГОЛОВНЕ: ОБМЕЖЕННЯ ВИСОТИ ТА ПРОКРУТКА === */
+.admin-table-viewport {
+  max-height: 600px; /* Приблизно 10 рядків */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+/* Кастомний скроллбар */
+.admin-table-viewport::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-table-viewport::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.admin-table-viewport::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.admin-table-viewport::-webkit-scrollbar-thumb:hover {
+  background: #00d2ff;
+}
+
+/* ТАБЛИЦІ */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.styled-table th {
+  position: sticky; /* Щоб шапка не уходила при скролі */
+  top: 0;
+  background: #1a1a1a;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #333;
+  color: #888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.styled-table td {
+  padding: 15px;
+  border-bottom: 1px solid #222;
+  vertical-align: middle;
+}
+
+/* СТАТУСИ ТА ЦІНИ */
+.status-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.status-tag.pending {
+  background: rgba(255, 165, 0, 0.1);
+  color: #ffa500;
+  border: 1px solid #ffa500;
+}
+.status-tag.confirmed {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border: 1px solid #00ff88;
+}
+
+.price-form {
+  display: flex;
+  gap: 5px;
+}
+.price-form input {
+  background: #252525;
+  border: 1px solid #333;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  width: 80px;
+}
+.price-form button {
+  background: #00d2ff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* КОРИСТУВАЧІ */
+/* Сітка карток */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  /* Прибираємо можливі конфлікти з прокруткою */
+  padding: 5px;
+}
+
+/* Картка користувача */
+.user-card {
+  background: #252525;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  border: 1px solid #333;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.user-card:hover {
+  border-color: #00d2ff;
+  transform: translateY(-2px);
+}
+
+.user-icon {
+  width: 45px;
+  height: 45px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #00d2ff;
+  font-size: 1.2rem;
+  flex-shrink: 0; /* Щоб іконка не стискалася */
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Щоб довгі емейли не вилазили */
+}
+
+.client-name {
+  font-weight: bold;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.client-email {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.badge.admin {
+  background: #ff4757;
+}
+
+.badge.client {
+  background: #2f3542;
+}
+
+/* ВІДГУКИ */
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-item {
+  background: #252525;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #00d2ff;
+}
+
+/* Кнопки в ряд в таблиці */
+.action-buttons-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Кнопка видалення для бронювання (іконка) */
+.delete-icon-btn {
+  background: transparent;
+  border: 1px solid #ff4757;
+  color: #ff4757;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.delete-icon-btn:hover {
+  background: #ff4757;
+  color: white;
+}
+
+/* Кнопка видалення клієнта (хрестик на картці) */
+.delete-user-badge {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0; /* Прихована за замовчуванням */
+  transition: 0.2s;
+  z-index: 5;
+}
+
+.user-card:hover .delete-user-badge {
+  opacity: 1; /* З'являється при наведенні на картку */
+}
+
+.delete-user-badge:hover {
+  transform: scale(1.2);
+  background: #ff1e31;
+}
+
+/* Контейнер для кожної картки питання */
+.question-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #00d4ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Стиль для вже відповідей карток (напівпрозорі) */
+.question-card.answered {
+  border-left-color: #00ff88;
+  opacity: 0.6;
+}
+
+.q-info strong {
+  color: #00d4ff;
+  font-size: 1.1rem;
+}
+
+.q-info small {
+  color: #888;
+  margin-left: 10px;
+}
+
+.q-info p {
+  margin: 10px 0;
+  font-style: italic;
+  color: #ddd;
+}
+
+/* Область відповіді */
+.reply-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Стилізація поля вводу (textarea) */
+.reply-area textarea {
+  width: 100%;
+  min-height: 80px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  padding: 12px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.reply-area textarea:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+/* Кнопка "Відповісти" */
+.reply-area button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #00d4ff 0%, #0072ff 100%);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reply-area button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+}
+
+.reply-area button:active {
+  transform: translateY(0);
+}
+
+/* Статус виконаного */
+.status-ok {
+  display: inline-block;
+  margin-top: 10px;
+  color: #00ff88;
+  font-weight: bold;
+  background: rgba(0, 255, 136, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
