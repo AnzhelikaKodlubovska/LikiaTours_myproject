@@ -19,17 +19,26 @@
 Перейдіть у папку сервера:
 ```bash
 cd Flask_project_cursova
-
+```
 Активуйте віртуальне середовище:
+```bash
 ..\venv\Scripts\activate
+```
 
 Запустіть проект:
+```bash
 python app.py
+```
 
-2. Запуск фронтенду (React)
+### 2. Запуск фронтенду (React)
+
 Перейдіть у папку клієнта:
+```bash
 cd React_project_cursova
+```
 
 Запустіть додаток:
+```bash
 npm install
 npm start
+```
