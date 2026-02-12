@@ -50,7 +50,7 @@ npm start
 🛠 Технології
 Frontend: React, HTML5, CSS3, JavaScript.
 
-Backend: Python, Flask, SQLite/PostgreSQL.
+Backend: Python, Flask, SQLite.
 
 Інше: Git, REST API.
 
