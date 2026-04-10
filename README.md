@@ -31,7 +31,10 @@ cd Flask_project_cursova
 ```bash
 ..\venv\Scripts\activate
 ```
-
+Перейдіть у папку:
+```bash
+cd likiatours
+```
 Запустіть проект:
 ```bash
 python app.py
