@@ -67,6 +67,6 @@ cd my-first-app
 npm install
 npm start
 ```
-###                                                     Головна сторінка додатку
+###  3. Головна сторінка додатку:
 
 <img width="1877" height="776" alt="image" src="https://github.com/user-attachments/assets/e0ec7af2-08aa-4552-bd9a-10ff532dfb8b" />
