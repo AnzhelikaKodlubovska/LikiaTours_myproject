@@ -52,3 +52,6 @@ cd React_project_cursova
 npm install
 npm start
 ```
+### Вигляд голоної сторінки:
+
+<img width="1877" height="776" alt="image" src="https://github.com/user-attachments/assets/e0ec7af2-08aa-4552-bd9a-10ff532dfb8b" />
