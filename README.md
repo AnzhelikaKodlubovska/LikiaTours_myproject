@@ -23,6 +23,11 @@
 
 ### 1. Запуск бекенду (Flask)
 
+Перейдіть у папку:
+```bash
+cd Tour_project
+```
+
 Перейдіть у папку сервера:
 ```bash
 cd Flask_project_cursova
@@ -42,9 +47,19 @@ python app.py
 
 ### 2. Запуск фронтенду (React)
 
+Перейдіть у папку:
+```bash
+cd Tour_project
+```
+
 Перейдіть у папку клієнта:
 ```bash
 cd React_project_cursova
+```
+
+Перейдіть у папку:
+```bash
+cd my-first-app
 ```
 
 Запустіть додаток:
@@ -52,6 +67,6 @@ cd React_project_cursova
 npm install
 npm start
 ```
-### Вигляд голоної сторінки:
+###                                                     Головна сторінка додатку
 
 <img width="1877" height="776" alt="image" src="https://github.com/user-attachments/assets/e0ec7af2-08aa-4552-bd9a-10ff532dfb8b" />
