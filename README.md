@@ -34,7 +34,7 @@ cd Flask_project_cursova
 ```
 Активуйте віртуальне середовище:
 ```bash
-..\venv\Scripts\activate
+.\venv\Scripts\activate
 ```
 Перейдіть у папку:
 ```bash
